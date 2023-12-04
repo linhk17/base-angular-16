@@ -1,1 +1,16 @@
-<p>management-sidenav works!</p>
+<div class="container">
+    <div class="logo">
+        <img class="img-1" src="assets/images/icon/loom.png" />
+        <img class="img-2" src="assets/images/icon/loom_text.png" />
+    </div>
+    <ul class="menu">
+        <li *ngFor="let item of menuSideNav" class="menu-item" [routerLink]="item.link" [routerLinkActive]="['is-active']">
+            <img class="icon-menu" [src]="'assets/images/icon/' + item.icon" />
+            <p class="title-menu">
+                {{item.title}}
+            </p>
+        </li>
+    </ul>
+</div>
+
+  

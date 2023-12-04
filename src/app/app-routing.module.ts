@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ManagementLayoutComponent } from './modules/layouts/management-layout/management-layout.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/management-lead' },
+  { path: '', pathMatch: 'full', redirectTo: '/management-lead/dashboard' },
   {
     path: 'management-lead',
     component: ManagementLayoutComponent,

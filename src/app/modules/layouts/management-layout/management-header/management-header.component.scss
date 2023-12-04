@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        list-style-type: none;
+        height: 44px;
+        gap: 32px;
+        margin: 0;
+        padding: 0;
+        .menu-item {
+            font-size: 14px;
+            line-height: 44px;
+
+            .icon-menu-item {
+                width: 24px;
+                height: 24px;
+                padding-top: 10px;
+            }
+
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    .container{
+        display: block;
+        margin-top: 50px;
+        margin-left: 20px;
+        
+        .menu{
+            justify-content: center;
+            margin-top: 10px;
+        }
+    }
+}

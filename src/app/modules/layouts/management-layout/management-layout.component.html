@@ -1,3 +1,40 @@
-<app-management-header></app-management-header>
-<app-management-sidenav></app-management-sidenav>
-<router-outlet></router-outlet>
+<!-- <div class="wrapper">
+    <app-management-sidenav class="sidenav"></app-management-sidenav>
+    <div class="container">
+        <div class="header">
+            <app-management-header ></app-management-header>
+        </div>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div> -->
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar class="logo">
+                <img class="img-1" src="assets/images/icon/loom.png" />
+                <img class="img-2" src="assets/images/icon/loom_text.png" />
+        </mat-toolbar>
+        <mat-nav-list class="menu">
+            <mat-nav-list-item *ngFor="let item of menuSideNav" class="menu-item" [routerLink]="item.link"
+                [routerLinkActive]="['is-active']">
+                <img class="icon-menu" [src]="'assets/images/icon/' + item.icon" />
+                <p class="title-menu">
+                    {{item.title}}
+                </p>
+            </mat-nav-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+           <app-management-header></app-management-header>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
