@@ -6,23 +6,24 @@
         Create Lead
       </button>
     </div>
-      <form [formGroup]="formFilter" class="children btn-group">
-        <mat-form-field>
-          <mat-label>Select an status</mat-label>
-          <mat-select (selectionChange)="setDataDisplay($event)" formControlName="filer">
-            <mat-option value="all">All</mat-option>
-            <mat-option [value]="0">Pending</mat-option>
-            <mat-option [value]="1">Assigned</mat-option>
-            <mat-option [value]="2">Success</mat-option>
-            <mat-option [value]="-1">Calling Back</mat-option>
-          </mat-select>
-        </mat-form-field>
+    <form [formGroup]="formFilter" class="children btn-group">
+      <mat-form-field>
+        <mat-label>Select an status</mat-label>
+        <mat-select (selectionChange)="setDataDisplay($event)" formControlName="filer">
+          <mat-option value="all">All</mat-option>
+          <mat-option [value]="0">Pending</mat-option>
+          <mat-option [value]="1">Assigned</mat-option>
+          <mat-option [value]="2">Success</mat-option>
+          <mat-option [value]="-1">Calling Back</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <div class="form-input-search">
-          <img class="icon-search" src="assets/images/icon/search.png" />
-          <input formControlName="search" class="form-control" type="search" id="search" placeholder="Search" />
-        </div>
-      </form>
-    </div>
-  <app-table-paginator (getData)="getDataPaginator($event, 10)" [lengthData]="dataSource.length" [data]="dataDisplay" [column]="column"></app-table-paginator>
+      <div class="form-input-search">
+        <img class="icon-search" src="assets/images/icon/search.png" />
+        <input formControlName="search" class="form-control" type="search" id="search" placeholder="Search" />
+      </div>
+    </form>
+  </div>
+    <app-table-paginator [loading$]="loading$" (getData)="getDataPaginator($event, 10)" [lengthData]="dataSource.length" [data]="dataDisplay"
+      [column]="column"></app-table-paginator>
 </div>

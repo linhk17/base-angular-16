@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { finalize } from 'rxjs';
 import { LeadService } from 'src/app/services/lead.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-management-lead',
@@ -22,10 +24,11 @@ export class ManagementLeadComponent {
     'Action',
   ];
   formFilter: FormGroup;
-
+  loading$ = this.loader.loading$;
   constructor(
     private fb: FormBuilder,
-    private leadService: LeadService) {
+    private leadService: LeadService,
+    public loader: LoadingService) {
     this.formFilter = this.fb.group({
       filer: [''],
       search: [''],
@@ -34,14 +37,16 @@ export class ManagementLeadComponent {
   ngOnInit() {
     this.leadService.getAll()
     .subscribe(res => this.dataSource = res)
-
     this.getDataPaginator(1, 10)
   }
 
   getDataPaginator(page: number, limit: number){
     this.leadService.getByPaginator(page, limit)
+    .pipe(finalize(() => this.leadService.isLoading(true)))
     .subscribe(res => {
-      this.dataDisplay = res
+      console.log(this.loading$);
+      
+      this.dataDisplay = res;
     } )
   }
 

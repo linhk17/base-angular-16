@@ -10,6 +10,7 @@ export class TablePaginatorComponent {
   @Input() data: any[] = [];
   @Input() column: any[] = [];
   @Input() lengthData: number = 0;
+  @Input() loading$: any;
   @Output() getData = new EventEmitter();
   page: number = 1;
   count: number = 0;

@@ -1,38 +1,45 @@
-<table>
-    <thead>
-        <tr>
-            <th *ngFor="let item of column | paginate
+<div class="loading" *ngIf="loading$ | async; else showData">
+    <mat-spinner></mat-spinner>
+</div>
+<ng-template #showData>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let item of column | paginate
             : {
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: lengthData
               };">{{item}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of data" class="item-table" (click)="navigate(item.id)">
-            <td>{{item.id}}</td>
-            <td>{{item.username}}</td>
-            <td>{{item.phoneNumber}}</td>
-            <td>{{item.email | numberPipe}}</td>
-            <td>{{item.state}}</td>
-            <td>{{item.leadSource | dateFormatPipe}}</td>
-            <td>
-                <div class="tag-status" [class]="
-                    item.status == 0 ? 'bg-grey'
-                    : item.status == 2 ? 'bg-success'
-                    : item.status == -1 ? 'bg-cancel'
-                    : 'bg-primary'">
-                    {{
-                    item.status == 0 ? 'Pending'
-                    : item.status == 2 ? 'Submitted'
-                    : item.status == -1 ? 'Calling back'
-                    : 'Assigned'}}
-                </div>
-            </td>
-            <td>View</td>
-        </tr>
-    </tbody>
-</table>
-<pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)">
-</pagination-controls>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let item of data" class="item-table" (click)="navigate(item.id)">
+                <td>{{item.id}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.phoneNumber}}</td>
+                <td>{{item.email | numberPipe}}</td>
+                <td>{{item.state}}</td>
+                <td>{{item.leadSource | dateFormatPipe}}</td>
+                <td>
+                    <div class="tag-status" [class]="
+                        item.status == 0 ? 'bg-grey'
+                        : item.status == 2 ? 'bg-success'
+                        : item.status == -1 ? 'bg-cancel'
+                        : 'bg-primary'">
+                        {{
+                        item.status == 0 ? 'Pending'
+                        : item.status == 2 ? 'Submitted'
+                        : item.status == -1 ? 'Calling back'
+                        : 'Assigned'}}
+                    </div>
+                </td>
+                <td>View</td>
+            </tr>
+        </tbody>
+    </table>
+<pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls>
+
+</ng-template>
