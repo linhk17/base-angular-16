@@ -12,7 +12,10 @@ export class TablePaginatorComponent {
   count: number = 0;
   tableSize: number = 7;
   // tableSizes: any = [3, 6, 9, 12];
-
+ngOnInit(){
+  console.log(this.data);
+  
+}
   onTableDataChange(event: any) {
     this.page = event;
     this.data = this.data

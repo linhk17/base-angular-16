@@ -20,7 +20,7 @@ export class ManagementLeadComponent {
           email: 1000000,
           state: 10,
           leadSource: new Date(),
-          status: Math.floor(Math.random() * (2 - 0 + 1) + 0),
+          status: Math.floor(Math.random() * (2 - (-1) + 1) + (-1)),
         }
       )
     }

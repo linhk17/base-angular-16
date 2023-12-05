@@ -7,7 +7,7 @@
                 currentPage: page,
                 totalItems: count
               };">{{item}}</th>
-              <th>Action</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -15,16 +15,25 @@
             <td>{{item.id}}</td>
             <td>{{item.username}}</td>
             <td>{{item.phoneNumber}}</td>
-            <td>{{item.email}}</td>
+            <td>{{item.email | numberPipe}}</td>
             <td>{{item.state}}</td>
-            <td>{{item.leadSource | date}}</td>
-            <td>{{item.status}}</td>
+            <td>{{item.leadSource | dateFormatPipe}}</td>
+            <td>
+                <div class="tag-status" [class]="
+                    item.status == 0 ? 'bg-grey'
+                    : item.status == 2 ? 'bg-success'
+                    : item.status == -1 ? 'bg-cancel'
+                    : 'bg-primary'">
+                    {{
+                    item.status == 0 ? 'Pending'
+                    : item.status == 2 ? 'Submitted'
+                    : item.status == -1 ? 'Calling back'
+                    : 'Assigned'}}
+                </div>
+            </td>
             <td>View</td>
         </tr>
     </tbody>
 </table>
-<pagination-controls
-      previousLabel=""
-      nextLabel=""
-    >
-    </pagination-controls>
+<pagination-controls previousLabel="" nextLabel="">
+</pagination-controls>
