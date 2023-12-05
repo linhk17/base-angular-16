@@ -1,0 +1,44 @@
+table,
+td,
+th {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    outline: 1px solid rgba(220, 220, 220, 1);
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+thead {
+    background-color: #000;
+    color: #fff;
+}
+
+.item-table:hover {
+    background-color: rgb(235, 235, 235);
+}
+::ng-deep .ngx-pagination{
+    text-align: center;
+}
+::ng-deep .ngx-pagination li {
+    border-radius: 4px !important;
+    padding: 10px !important;
+    height: 20px !important;
+    width: 20px !important;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.05);
+    margin: 0 8px;
+    text-align: center;
+}
+
+::ng-deep .ngx-pagination a, .ngx-pagination button{
+    padding: 0 !important;
+    &:hover{
+        background-color: transparent !important;
+    }
+}
