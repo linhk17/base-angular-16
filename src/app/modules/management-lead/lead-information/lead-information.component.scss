@@ -1,0 +1,104 @@
+.container {
+    padding: 24px;
+    margin: 24px;
+    box-shadow: 5px 10px 40px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.header-page {
+    display: grid;
+    gap: 24px;
+    text-align: end;
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .list-action {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+.form-container {
+    margin-top: 24px;
+    background-color: #fff;
+
+    .form-group {
+        display: grid;
+        gap: 20px 35px;
+        grid-template-columns: repeat(auto-fit, minmax(min(32rem, 100%), 1fr));
+        margin-bottom: 24px;
+    }
+
+    .text-error {
+        // margin-top: 5px;
+        padding: 5px 5px 0 5px;
+        color: red;
+        font-weight: 700;
+        animation: .5s fadeIn;
+        animation-fill-mode: forwards;
+        visibility: hidden;
+    }
+
+    .form-prefix {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+@media only screen and (max-width: 1024px){
+    .list-action{
+        display: grid !important;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+    }
+}
+/* Custom style Module Material */
+
+.mat-mdc-form-field {
+    width: 100% !important;
+}
+
+.mat-mdc-tab-group,
+.mat-mdc-tab-nav-bar {
+    font-weight: 700;
+    --mat-tab-header-disabled-ripple-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-pagination-icon-color: #000;
+    --mat-tab-header-inactive-label-text-color: rgba(108, 115, 127, 1);
+    --mat-tab-header-active-label-text-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-active-ripple-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-inactive-ripple-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-inactive-focus-label-text-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-inactive-hover-label-text-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-active-focus-label-text-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-active-hover-label-text-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-active-focus-indicator-color: rgba(0, 0, 0, 1);
+    --mat-tab-header-active-hover-indicator-color: rgba(0, 0, 0, 1);
+    --mdc-tab-indicator-active-indicator-color: rgba(0, 0, 0, 1);
+}
+
+::ng-deep .mat-mdc-tab-header {
+    --mat-tab-header-label-text-size: 16px !important;
+    --mat-tab-header-label-text-weight: 700 !important;
+}
+
+::ng-deep .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #fff
+}

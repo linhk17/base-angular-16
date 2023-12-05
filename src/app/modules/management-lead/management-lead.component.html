@@ -1,26 +1,29 @@
-<div class="header-page">
-  <div class="children">
-    <button class="btn-dark" mat-raised-button color="primary">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
-      Create Lead
-    </button>
+<div class="container">
+  <div class="header-page">
+    <div class="children">
+      <button class="btn-dark" mat-raised-button color="primary">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
+        Create Lead
+      </button>
+    </div>
+    <div class="children btn-group">
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="all">All</mat-option>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <form action="" class="form-input-search">
+        <img class="icon-search" src="assets/images/icon/search.png" />
+        <input class="form-control" type="search" id="search" placeholder="Search" />
+      </form>
+    </div>
   </div>
-  <div class="children btn-group">
-    <mat-form-field>
-      <mat-label>Select an option</mat-label>
-      <mat-select [(value)]="selected">
-        <mat-option value="all">All</mat-option>
-        <mat-option value="option1">Option 1</mat-option>
-        <mat-option value="option2">Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
-      </mat-select>
-    </mat-form-field>
-    
-    <form action="" class="form-input-search">
-      <img class="icon-search" src="assets/images/icon/search.png" />
-      <input class="form-control" type="search" id="search" placeholder="Search" />
-    </form>
-  </div>
+  
+  <app-table-paginator [data]="dataSource" [column]="column"></app-table-paginator>
 </div>
 
-<app-table-paginator [data]="dataSource" [column]="column"></app-table-paginator>

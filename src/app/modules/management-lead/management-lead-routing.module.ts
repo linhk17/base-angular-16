@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'information',
     component: LeadInformationComponent,
   },
+  {
+    path: 'information/:id',
+    component: LeadInformationComponent,
+  },
 ];
 
 @NgModule({

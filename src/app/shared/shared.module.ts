@@ -7,6 +7,8 @@ import { TablePaginatorComponent } from './components/table-paginator/table-pagi
 import { dateFormatPipe } from './pipes/date.pipe';
 import { CurrencyFormatPipe } from './pipes/currency.pipe';
 import { NumberPipe } from './pipes/number.pipe';
+import { DatetimePipe } from './pipes/datetime.pipe';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -16,7 +18,8 @@ import { NumberPipe } from './pipes/number.pipe';
     TablePaginatorComponent,
     dateFormatPipe,
     CurrencyFormatPipe,
-    NumberPipe
+    NumberPipe,
+    DatetimePipe
   ],
   imports: [
     CommonModule,
@@ -30,7 +33,8 @@ import { NumberPipe } from './pipes/number.pipe';
     TablePaginatorComponent,
     dateFormatPipe,
     CurrencyFormatPipe,
-    NumberPipe
+    NumberPipe,
+    DatetimePipe
 
   ]
 })

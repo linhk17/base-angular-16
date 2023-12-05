@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-paginator',
@@ -12,17 +13,21 @@ export class TablePaginatorComponent {
   count: number = 0;
   tableSize: number = 7;
   // tableSizes: any = [3, 6, 9, 12];
-ngOnInit(){
-  console.log(this.data);
-  
-}
+
+  constructor(private router: Router){}
+  ngOnInit() {
+    console.log(this.data);
+  }
+  navigate(id: string) {
+    this.router.navigate(['/management-lead/information/', id])
+  }
   onTableDataChange(event: any) {
     this.page = event;
-    this.data = this.data
+    this.data = this.data;
   }
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
-    this.data = this.data
+    this.data = this.data;
   }
 }

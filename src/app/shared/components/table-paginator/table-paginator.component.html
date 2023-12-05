@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of data" class="item-table">
+        <tr *ngFor="let item of data" class="item-table" (click)="navigate(item.id)">
             <td>{{item.id}}</td>
             <td>{{item.username}}</td>
             <td>{{item.phoneNumber}}</td>

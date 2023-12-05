@@ -14,13 +14,13 @@ export class ManagementLeadComponent {
     for (let index = 0; index < 10; index++) {
       this.dataSource.push(
         {
-          id: '#001',
+          id: index,
           username: 'User Name',
           phoneNumber: 'Education',
           email: 1000000,
           state: 10,
           leadSource: new Date(),
-          status: Math.floor(Math.random() * (2 - (-1) + 1) + (-1)),
+          status: Math.floor(Math.random() * (2 - (-1) + 1) + (-1))
         }
       )
     }

@@ -4,6 +4,8 @@ import { ManagementLeadComponent } from './management-lead.component';
 import { ManagementLeadRoutingModule } from './management-lead-routing.module';
 import { LeadInformationComponent } from './lead-information/lead-information.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,6 +17,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
+    ReactiveFormsModule,
+    MaterialModule,
     ManagementLeadRoutingModule
   ]
 })
