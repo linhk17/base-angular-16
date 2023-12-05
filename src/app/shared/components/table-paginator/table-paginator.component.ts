@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,25 +9,31 @@ import { Router } from '@angular/router';
 export class TablePaginatorComponent {
   @Input() data: any[] = [];
   @Input() column: any[] = [];
+  @Input() lengthData: number = 0;
+  @Output() getData = new EventEmitter();
   page: number = 1;
   count: number = 0;
-  tableSize: number = 7;
+  tableSize: number = 10;
   // tableSizes: any = [3, 6, 9, 12];
 
-  constructor(private router: Router){}
-  ngOnInit() {
-    console.log(this.data);
+  constructor(private router: Router) {}
+  ngOnInit() { 
+  }
+  ngOnChange(){
+    console.log(this.lengthData);
+    
+    this.count = this.lengthData
   }
   navigate(id: string) {
-    this.router.navigate(['/management-lead/information/', id])
+    this.router.navigate(['/management-lead/information/', id]);
   }
   onTableDataChange(event: any) {
     this.page = event;
-    this.data = this.data;
+    this.getData.emit(event)
   }
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
-    this.data = this.data;
+    this.getData.emit(event)
   }
 }

@@ -5,9 +5,8 @@
             : {
                 itemsPerPage: tableSize,
                 currentPage: page,
-                totalItems: count
+                totalItems: lengthData
               };">{{item}}</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -35,5 +34,5 @@
         </tr>
     </tbody>
 </table>
-<pagination-controls previousLabel="" nextLabel="">
+<pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)">
 </pagination-controls>

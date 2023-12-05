@@ -16,6 +16,7 @@ import en from '@angular/common/locales/en';
 import localeDe from '@angular/common/locales/de';
 import localeDeExtra from '@angular/common/locales/extra/de';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 // registerLocaleData(localeDe, 'hi-IN', localeDeExtra);
 registerLocaleData(en);
 
@@ -34,7 +35,8 @@ registerLocaleData(en);
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [{
     provide: LOCALE_ID,
