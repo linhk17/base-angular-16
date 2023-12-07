@@ -12,18 +12,20 @@
         display: flex;
         gap: 1rem;
         justify-content: flex-end;
+        align-items: flex-end;
 
         .form-input-search {
             position: relative;
             height: 36px;
-            width: 324px;
+            min-width: 324px;
             border: 1px solid rgba(220, 220, 220, 1);
             border-radius: 8px;
             padding: 10px 16px;
 
             .form-control {
                 position: absolute;
-                width: 310px;
+                max-width: 310px;
+
                 min-height: 56px;
                 font-size: 14px;
                 top: 0;
@@ -63,13 +65,13 @@
         flex-basis: 500px;
     }
 
-    .form-input-search {
-        width: 200px !important;
+    // .form-input-search {
+    //     width: 200px !important;
 
-        .form-control {
-            width: 180px !important;
-        }
-    }
+    //     .form-control {
+    //         width: 180px !important;
+    //     }
+    // }
 }
 
 @media only screen and (max-width: 672px) {
@@ -83,7 +85,11 @@
     }
 
     .btn-group {
-        display: block;
+        flex-wrap: wrap;
         width: 100% !important;
+
+        *{
+            width: 100%;
+        }
     }
 }

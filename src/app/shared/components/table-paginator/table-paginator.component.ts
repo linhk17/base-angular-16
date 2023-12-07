@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { dataTable } from 'src/app/modules/management-lead/management-lead.component';
 
 @Component({
   selector: 'app-table-paginator',
@@ -7,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./table-paginator.component.scss'],
 })
 export class TablePaginatorComponent {
-  @Input() data: any[] = [];
-  @Input() column: any[] = [];
+  @Input() data: dataTable[] = [];
+  @Input() column: string[] = [];
   @Input() lengthData: number = 0;
   @Input() loading$: any;
   @Output() getData = new EventEmitter();

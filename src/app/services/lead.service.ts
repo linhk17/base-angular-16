@@ -6,15 +6,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LeadService {
-  public loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
-  );
 
   constructor(private httpClient: HttpClient) {}
-
-  public isLoading(state: boolean){
-    this.loading.next(state);
-  }
 
   public getAll(): Observable<any> {
     return this.httpClient.get<any>(

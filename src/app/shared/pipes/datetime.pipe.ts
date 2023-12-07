@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DatetimePipe implements PipeTransform {
 
-  transform(value: string | null) {
+  transform(value: string | Date | null) {
     var datePipe = new DatePipe('en-US');
     value = datePipe.transform(value, 'd/M/YYYY hh:mm a');
     return value;

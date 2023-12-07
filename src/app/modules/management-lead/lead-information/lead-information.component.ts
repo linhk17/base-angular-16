@@ -1,8 +1,7 @@
-import { Component, numberAttribute } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -11,21 +10,27 @@ import { countryCode } from 'src/app/shared/utils/phone_code_country';
 import {
   PhoneNumberValidator,
   getCountryCodePhone,
-  numberFormat,
   numberFormatNoCode,
 } from 'src/app/shared/utils/validator';
+
+export interface countryPhoneCode{
+  name: string | number | any,
+  dial_code: string,
+  code: string,
+}
+
 @Component({
   selector: 'app-lead-information',
   templateUrl: './lead-information.component.html',
   styleUrls: ['./lead-information.component.scss'],
 })
 export class LeadInformationComponent {
-  updated: any = new Date();
+  updated: Date | string = new Date();
   submitted: boolean = false;
 
   phoneCode: string = 'VN';
   phoneDialCode: string = '+84';
-  countryCode: any[] = [];
+  countryCode: countryPhoneCode[] = [];
   formValidate: FormGroup;
   $loading: boolean = false;
   data = {
@@ -70,7 +75,8 @@ export class LeadInformationComponent {
   }
 
   ngOnInit() {
-    this.countryCode = countryCode.sort((a: any, b: any) => a.name - b.name);
+    this.countryCode = countryCode.sort(
+      (a: countryPhoneCode, b: countryPhoneCode) => a.name - b.name);
 
     this.phoneDialCode =
       '+' + getCountryCodePhone(this.data.phoneNumber).dial_code;
