@@ -14,6 +14,7 @@ export interface dataTable {
   leadSource: string;
 }
 
+
 @Component({
   selector: 'app-management-lead',
   templateUrl: './management-lead.component.html',

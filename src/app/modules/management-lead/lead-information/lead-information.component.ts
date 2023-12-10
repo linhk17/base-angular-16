@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
+  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -88,13 +89,6 @@ export class LeadInformationComponent {
     return this.formValidate.controls;
   }
 
-  getErrorMessage(control: any, typeError?: String) {
-    if (control.hasError('required')) {
-      return 'You must enter a value';
-    }
-    return control.hasError(`${typeError}`) ? `Value input invalid` : '';
-  }
-
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       horizontalPosition: 'center',
@@ -128,3 +122,4 @@ export class LeadInformationComponent {
     }
   }
 }
+

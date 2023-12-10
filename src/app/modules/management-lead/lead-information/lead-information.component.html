@@ -16,10 +16,10 @@
                 <mat-form-field>
                     <mat-label>Lead Owner</mat-label>
                     <input formControlName="owner" matInput placeholder="Placeholder">
+                    <mat-error *ngIf="formControl['owner'].hasError('required')">
+                        You must enter a value
+                    </mat-error>
                 </mat-form-field>
-                <div class="text-error" *ngIf="submitted && formControl['owner'].errors">
-                    {{getErrorMessage(formControl['owner'], 'owner')}}
-                </div>
             </div>
             <div class="form-group-control">
                 <mat-form-field>
@@ -30,19 +30,22 @@
                         <mat-option value="option2">Option 2</mat-option>
                         <mat-option value="option3">Option 3</mat-option>
                     </mat-select>
+                    <mat-error *ngIf="formControl['leadStatus'].hasError('required')">
+                        You must enter a value
+                    </mat-error>
                 </mat-form-field>
-                <div class="text-error" *ngIf="submitted && formControl['leadStatus'].errors">
-                    {{getErrorMessage(formControl['leadStatus'], 'leadStatus')}}
-                </div>
             </div>
             <div class="form-group-control">
                 <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input formControlName="email" matInput placeholder="Placeholder">
+                    <mat-error *ngIf="formControl['email'].hasError('required')">
+                        You must enter a value
+                    </mat-error>
+                    <mat-error *ngIf="formControl['email'].hasError('email')">
+                        Not a valid email
+                    </mat-error>
                 </mat-form-field>
-                <div class="text-error" *ngIf="submitted && formControl['email'].errors">
-                    {{getErrorMessage(formControl['email'], 'email')}}
-                </div>
             </div>
             <div class="form-group-control">
                 <mat-form-field>
@@ -53,10 +56,10 @@
                         <mat-option value="option2">Option 2</mat-option>
                         <mat-option value="option3">Option 3</mat-option>
                     </mat-select>
+                    <mat-error *ngIf="formControl['leadSource'].hasError('required')">
+                        You must enter a value
+                    </mat-error>
                 </mat-form-field>
-                <div class="text-error" *ngIf="submitted && formControl['leadSource'].errors">
-                    {{getErrorMessage(formControl['leadSource'], 'leadSource')}}
-                </div>
             </div>
             <div class="form-group-control">
                 <mat-form-field>
@@ -70,10 +73,13 @@
                             changeCountryCode(item.dial_code, item.code)" mat-menu-item>
                             {{'(' + item.dial_code + ') ' + item.name}}</button>
                     </mat-menu>
+                    <mat-error *ngIf="formControl['phoneNumber'].hasError('required')">
+                        You must enter a value
+                    </mat-error>
+                    <mat-error *ngIf="formControl['phoneNumber'].hasError('wrongNumber')">
+                        Not a valid phone number
+                    </mat-error>
                 </mat-form-field>
-                <div class="text-error" *ngIf="submitted && formControl['phoneNumber'].errors">
-                    {{getErrorMessage(formControl['phoneNumber'], 'wrongNumber')}}
-                </div>
             </div>
         </div>
 
@@ -84,19 +90,19 @@
                         <mat-form-field>
                             <mat-label>First Name</mat-label>
                             <input formControlName="firstName" matInput placeholder="Placeholder">
+                            <mat-error *ngIf="formControl['firstName'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['firstName'].errors">
-                            {{getErrorMessage(formControl['firstName'], 'firstName')}}
-                        </div>
                     </div>
                     <div class="form-group-control">
                         <mat-form-field>
                             <mat-label>Last Name</mat-label>
                             <input formControlName="lastName" matInput placeholder="Placeholder">
+                            <mat-error *ngIf="formControl['lastName'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['lastName'].errors">
-                            {{getErrorMessage(formControl['lastName'], 'lastName')}}
-                        </div>
                     </div>
                     <div class="form-group-control">
                         <mat-form-field>
@@ -110,19 +116,25 @@
                                     changeCountryCode(item.dial_code, item.code)" mat-menu-item>
                                     {{'(' + item.dial_code + ') ' + item.name}}</button>
                             </mat-menu>
+                            <mat-error *ngIf="formControl['phoneNumber'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
+                            <mat-error *ngIf="formControl['phoneNumber'].hasError('wrongNumber')">
+                                Not a valid phone number
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['phoneNumber'].errors">
-                            {{getErrorMessage(formControl['phoneNumber'], 'wrongNumber')}}
-                        </div>
                     </div>
                     <div class="form-group-control">
                         <mat-form-field>
                             <mat-label>Email</mat-label>
                             <input formControlName="email" matInput placeholder="Placeholder">
+                            <mat-error *ngIf="formControl['email'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
+                            <mat-error *ngIf="formControl['email'].hasError('email')">
+                                Not a valid email
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['email'].errors">
-                            {{getErrorMessage(formControl['email'], 'email')}}
-                        </div>
                     </div>
                     <div class="form-group-control">
                         <mat-form-field>
@@ -133,37 +145,37 @@
                                 <mat-option value="option2">Option 2</mat-option>
                                 <mat-option value="option3">Option 3</mat-option>
                             </mat-select>
+                            <mat-error *ngIf="formControl['leadPurpose'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['leadPurpose'].errors">
-                            {{getErrorMessage(formControl['leadPurpose'], 'leadPurpose')}}
-                        </div>
                     </div>
                     <div class="form-group-control">
                         <mat-form-field>
                             <mat-label>Load Amount</mat-label>
                             <input formControlName="loadAmount" matInput placeholder="Placeholder">
+                            <mat-error *ngIf="formControl['loadAmount'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['loadAmount'].errors">
-                            {{getErrorMessage(formControl['loadAmount'], 'loadAmount')}}
-                        </div>
                     </div>
                     <div class="form-group-control">
                         <mat-form-field>
                             <mat-label>Time frame of purchase</mat-label>
                             <input formControlName="time" matInput placeholder="Placeholder">
+                            <mat-error *ngIf="formControl['time'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['time'].errors">
-                            {{getErrorMessage(formControl['time'], 'time')}}
-                        </div>
                     </div>
                     <div class="form-group-control">
                         <mat-form-field>
                             <mat-label>Prefer time to call</mat-label>
                             <input formControlName="prefer" matInput placeholder="Placeholder">
+                            <mat-error *ngIf="formControl['prefer'].hasError('required')">
+                                You must enter a value
+                            </mat-error>
                         </mat-form-field>
-                        <div class="text-error" *ngIf="submitted && formControl['prefer'].errors">
-                            {{getErrorMessage(formControl['prefer'], 'prefer')}}
-                        </div>
                     </div>
 
 
@@ -178,7 +190,7 @@
             <mat-tab label="Third"> Content 3 </mat-tab>
         </mat-tab-group>
         <div class="btn-submit" style="display: flex; justify-content: end;">
-            <button style="width: 160px" type="submit" color="primary" class="btn-dark" mat-raised-button >
+            <button style="width: 160px" type="submit" color="primary" class="btn-dark" mat-raised-button>
                 <mat-icon *ngIf="$loading"><mat-spinner diameter="18">
                     </mat-spinner></mat-icon>
                 Save</button>

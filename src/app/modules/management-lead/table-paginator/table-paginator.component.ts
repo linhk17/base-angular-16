@@ -19,23 +19,22 @@ export class TablePaginatorComponent {
   // tableSizes: any = [3, 6, 9, 12];
 
   constructor(private router: Router) {}
-  ngOnInit() { 
-  }
-  ngOnChange(){
+  ngOnInit() {}
+  ngOnChange() {
     console.log(this.lengthData);
-    
-    this.count = this.lengthData
+
+    this.count = this.lengthData;
   }
   navigate(id: string) {
     this.router.navigate(['/management-lead/information/', id]);
   }
   onTableDataChange(event: any) {
     this.page = event;
-    this.getData.emit(event)
+    this.getData.emit(event);
   }
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
-    this.getData.emit(event)
+    this.getData.emit(event);
   }
 }
