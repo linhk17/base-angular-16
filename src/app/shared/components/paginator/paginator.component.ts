@@ -10,6 +10,8 @@ export class PaginatorComponent {
   @Input() tableSize: any;
   @Output() getData = new EventEmitter()
   onTableDataChange(event: any) {
+    console.log(event);
+    
     this.page = event;
     this.getData.emit(event);
   }

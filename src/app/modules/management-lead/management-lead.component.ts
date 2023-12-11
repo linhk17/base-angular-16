@@ -56,6 +56,8 @@ export class ManagementLeadComponent {
   }
 
   getDataPaginator(page: number, limit: number) {
+    console.log(page);
+    
     this.subcription.add(
       this.leadService.getByPaginator(page, limit).subscribe((res) => {
         this.dataDisplay = res;

@@ -32,8 +32,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     dateFormatPipe,
     CurrencyFormatPipe,
     NumberPipe,
-    DatetimePipe
-
+    DatetimePipe,
+    PaginatorComponent
   ]
 })
 export class SharedModule { }

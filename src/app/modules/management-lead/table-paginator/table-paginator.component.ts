@@ -28,13 +28,4 @@ export class TablePaginatorComponent {
   navigate(id: string) {
     this.router.navigate(['/management-lead/information/', id]);
   }
-  onTableDataChange(event: any) {
-    this.page = event;
-    this.getData.emit(event);
-  }
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.getData.emit(event);
-  }
 }
