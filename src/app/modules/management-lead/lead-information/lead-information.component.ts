@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { countryCode } from 'src/app/shared/utils/phone_code_country';
 import {
   PhoneNumberValidator,
+  dialCode,
   getCountryCodePhone,
   numberFormatNoCode,
 } from 'src/app/shared/utils/validator';
@@ -58,7 +59,7 @@ export class LeadInformationComponent {
           Validators.required,
           PhoneNumberValidator(
             this.data.phoneNumber
-              ? getCountryCodePhone(this.data.phoneNumber).country
+              ? getCountryCodePhone(this.data.phoneNumber).countryCode
               : this.phoneCode
           ),
         ],
@@ -82,7 +83,10 @@ export class LeadInformationComponent {
     this.phoneDialCode =
       '+' + getCountryCodePhone(this.data.phoneNumber).dial_code;
 
-    this.formValidate.patchValue(this.data);
+    this.formValidate.patchValue({
+      ...this.data,
+      phoneNumber: getCountryCodePhone(this.data.phoneNumber).nationalNumber,
+    });
   }
 
   get formControl(): { [key: string]: AbstractControl } {
@@ -95,6 +99,11 @@ export class LeadInformationComponent {
       verticalPosition: 'top'
     });
   }
+  setDiaCodeMenu(value: any){
+    if(value){
+      this.phoneDialCode = dialCode
+    }
+  }
 
   changeCountryCode(dial_code: any, code: any) {
     this.phoneCode = code;
@@ -103,12 +112,14 @@ export class LeadInformationComponent {
       PhoneNumberValidator(this.phoneCode)
     );
     this.formValidate.controls['phoneNumber'].setValue(
-      this.phoneDialCode + ' ' + numberFormatNoCode
+      numberFormatNoCode
     );
   }
   onSubmit() {
     this.submitted = true;
     if(this.formValidate.valid){
+      console.log(this.formValidate.value);
+      
       new Promise((resolve, reject) => {
         this.$loading = true;
         resolve(this.$loading);

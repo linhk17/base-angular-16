@@ -64,7 +64,7 @@
             <div class="form-group-control">
                 <mat-form-field>
                     <mat-label>Phone</mat-label>
-                    <input formControlName="phoneNumber" matInput placeholder="Placeholder">
+                    <input (ngModelChange)="setDiaCodeMenu($event)" formControlName="phoneNumber" matInput placeholder="Placeholder">
                     <p class="form-prefix" matSuffix [matMenuTriggerFor]="menu">{{phoneDialCode}}
                         <mat-icon>arrow_drop_down</mat-icon>
                     </p>
@@ -73,9 +73,6 @@
                             changeCountryCode(item.dial_code, item.code)" mat-menu-item>
                             {{'(' + item.dial_code + ') ' + item.name}}</button>
                     </mat-menu>
-                    <mat-error *ngIf="formControl['phoneNumber'].hasError('required')">
-                        You must enter a value
-                    </mat-error>
                     <mat-error *ngIf="formControl['phoneNumber'].hasError('wrongNumber')">
                         Not a valid phone number
                     </mat-error>
