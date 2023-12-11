@@ -7,6 +7,7 @@ import { dateFormatPipe } from './pipes/date.pipe';
 import { CurrencyFormatPipe } from './pipes/currency.pipe';
 import { NumberPipe } from './pipes/number.pipe';
 import { DatetimePipe } from './pipes/datetime.pipe';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 
 
@@ -16,7 +17,8 @@ import { DatetimePipe } from './pipes/datetime.pipe';
     dateFormatPipe,
     CurrencyFormatPipe,
     NumberPipe,
-    DatetimePipe
+    DatetimePipe,
+    PaginatorComponent
   ],
   imports: [
     CommonModule,
