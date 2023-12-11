@@ -25,7 +25,6 @@
             .form-control {
                 position: absolute;
                 max-width: 310px;
-
                 min-height: 56px;
                 font-size: 14px;
                 top: 0;
@@ -58,6 +57,9 @@
 }
 
 @media only screen and (max-width: 810px) {
+    .container {
+        padding: 0;
+    }
     .btn-group {
         justify-content: flex-start;
     }
@@ -68,6 +70,12 @@
 
     .header-page> :last-child {
         flex-basis: 500px;
+    }
+    .form-input-search{
+        min-width: 50% !important;
+        .form-control{
+            max-width: 80% !important;
+        }
     }
 }
 
@@ -88,5 +96,19 @@
         * {
             width: 100%;
         }
+    }
+}
+@media only screen and (max-width: 425px) {
+    .container {
+        padding: 0 5px;
+    }
+    .form-input-search{
+        min-width: 80% !important;
+        .form-control{
+            max-width: 80% !important;
+        }
+    }
+    form, button{
+        overflow: hidden;
     }
 }

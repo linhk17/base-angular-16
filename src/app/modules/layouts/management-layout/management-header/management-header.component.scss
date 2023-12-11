@@ -3,6 +3,7 @@
     align-items: flex-start;
     gap: 1rem;
     grid-template-columns: 4fr 1fr;
+
     .menu {
         display: flex;
         justify-content: flex-end;
@@ -25,15 +26,39 @@
         }
     }
 }
-@media only screen and (max-width: 768px){
-    .container{
+
+@media only screen and (max-width: 672px) {
+    .container {
         display: block;
         margin-top: 50px;
         margin-left: 10px;
 
-        .menu{
+        .menu {
             justify-content: center;
             margin-top: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .container {
+        display: block;
+        margin-top: 50px;
+        margin-left: 10px;
+
+        .menu {
+            justify-content: center;
+            margin-top: 10px;
+            gap: 15px;
+        }
+
+        .search,
+        .menu {
+            width: 90%;
+        }
+        ::ng-deep .mat-mdc-icon-button .mat-mdc-button-touch-target{
+            width: 36px !important;
+            height: 36px !important;
         }
     }
 }

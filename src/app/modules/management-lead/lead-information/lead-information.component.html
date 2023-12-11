@@ -4,10 +4,10 @@
             Last Update: <span>{{updated | datetimeFormat }}</span>
         </p>
         <div class="list-action">
-            <button color="primary" mat-raised-button class="btn-dark">Run Credit Report</button>
-            <button color="primary" mat-raised-button class="btn-dark">Send Email</button>
-            <button color="primary" mat-raised-button class="btn-dark">Privacy Consent</button>
-            <button color="primary" mat-raised-button class="btn-dark">Convert</button>
+            <button color="primary" mat-raised-button class="btn">Run Credit Report</button>
+            <button color="primary" mat-raised-button class="btn">Send Email</button>
+            <button color="primary" mat-raised-button class="btn">Privacy Consent</button>
+            <button color="primary" mat-raised-button class="btn">Convert</button>
         </div>
     </div>
     <form class="form-container" [formGroup]="formValidate" (ngSubmit)="onSubmit()">

@@ -24,17 +24,9 @@
                         <td>{{item.state}}</td>
                         <td>{{item.leadSource | dateFormatPipe}}</td>
                         <td>
-                            <div class="tag-status" [class]="
-                            item.status == 0 ? 'bg-grey'
-                            : item.status == 2 ? 'bg-success'
-                            : item.status == -1 ? 'bg-cancel'
-                            : 'bg-primary'">
-                                {{
-                                item.status == 0 ? 'Pending'
-                                : item.status == 2 ? 'Submitted'
-                                : item.status == -1 ? 'Calling back'
-                                : 'Assigned'}}
-                            </div>
+                            <ng-container [ngTemplateOutlet]="statusTag"
+                                [ngTemplateOutletContext]="{ status: item.status}">
+                            </ng-container>
                         </td>
                         <td>View</td>
                     </tr>
@@ -43,4 +35,17 @@
         </div>
     </div>
     <pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls>
+</ng-template>
+<ng-template #statusTag let-status="status">
+    <button class="tag-status" 
+    [class]="status == 0 ? 'bg-grey'
+            : status == 2 ? 'bg-success'
+            : status == -1 ? 'bg-cancel'
+            : 'bg-primary'">
+        {{
+        status == 0 ? 'Pending'
+        : status == 2 ? 'Submitted'
+        : status == -1 ? 'Calling back'
+        : 'Assigned'}}
+    </button>
 </ng-template>
