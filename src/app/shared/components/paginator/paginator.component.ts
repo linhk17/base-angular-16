@@ -8,16 +8,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PaginatorComponent {
   @Input() page: any;
   @Input() tableSize: any;
+  @Input() pageCurrent = new EventEmitter();
   @Output() getData = new EventEmitter()
   onTableDataChange(event: any) {
-    console.log(event);
-    
-    this.page = event;
-    this.getData.emit(event);
-  }
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
     this.getData.emit(event);
   }
 }

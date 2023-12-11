@@ -1,0 +1,31 @@
+::ng-deep .ngx-pagination .current {
+    background-color: #000000 !important;
+}
+
+
+::ng-deep .ngx-pagination .pagination-previous a::before,
+::ng-deep .ngx-pagination .pagination-previous.disabled::before,
+::ng-deep .ngx-pagination .pagination-next a::after,
+::ng-deep .ngx-pagination .pagination-next.disabled::after {
+    width: 10px;
+    height: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::ng-deep .ngx-pagination .pagination-previous a::before,
+::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+    font-family: 'Material Icons' !important;
+    content: 'arrow_back_ios' !important;
+    margin-right: 0 !important;
+    
+}
+
+::ng-deep .ngx-pagination .pagination-next a::after,
+::ng-deep .ngx-pagination .pagination-next.disabled::after {
+    font-family: 'Material Icons' !important;
+    content: 'arrow_forward_ios' !important;
+    margin-left: 0 !important;
+}

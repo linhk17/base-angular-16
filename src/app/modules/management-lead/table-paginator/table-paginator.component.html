@@ -35,7 +35,10 @@
         </div>
     </div>
     <!-- <pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)"></pagination-controls> -->
-    <app-paginator [tableSize]="tableSize" [page]="page" (getData)="getData.emit($event)"></app-paginator>
+    <app-paginator [tableSize]="tableSize" [page]="page" 
+    (getData)="
+    getData.emit($event); 
+    page = $event"></app-paginator>
 </ng-template>
 <ng-template #statusTag let-status="status">
     <button class="tag-status" 
